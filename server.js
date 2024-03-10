@@ -3,6 +3,11 @@ const path = require('path');
 
 const app = express();
 
+app.use('/admin', (req, res, next) => {
+    if(isAdmin()) next();
+    else res.send('Go away!');
+  });
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/index.html'));
 });
