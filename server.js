@@ -11,9 +11,9 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post('/contact/send-message', (req, res) => {
 
-  const { author, sender, title, message } = req.body;
+  const { author, sender, title, message, design } = req.body;
 
-  if(author && sender && title && message) {
+  if(author && sender && title && message && design) {
     res.render('contact', { isSent: true });
   }
   else {
